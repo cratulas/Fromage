@@ -1,0 +1,49 @@
+
+body {
+    background-color: #f8f9fa;
+}
+
+h2 {
+    color: #343a40;
+}
+
+.form-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Color personalizado */
+.bg-custom {
+    background-color: #002884 !important;
+}
+/* Color personalizado */
+
+
+/* Carrusel */
+.carousel-item img {
+    width: 100%;
+    max-height: 500px; 
+    object-fit: contain;
+}
+/* Carrusel */
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff !important; /* Fondo blanco */
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.navbar .nav-link {
+    color: #000000 !important; /* Texto en color negro */
+}
+
+.navbar .navbar-brand {
+    color: #000000 !important; /* Color del nombre de la marca en negro */
+}
+
+/* Cambiar color del texto cuando esté activo o en hover */
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #333333 !important;
+}
+/* Navbar */

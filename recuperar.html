@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-        <!-- Contenedor para el Navbar -->
-        <div id="navbar-container"></div>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Contenido principal -->
     <div class="container">
         <div class="row justify-content-center align-items-center min-vh-100">
             <div class="col-md-6 col-lg-4">
@@ -29,15 +31,8 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        // Simulación de envío de recuperación de contraseña
-        document.getElementById("recoverForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const email = document.getElementById("email").value;
-            alert(`Se han enviado las instrucciones de recuperación al correo: ${email}`);
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></script>
     <script src="js/navbar.js"></script>
+    <script src="js/recuperar.js"></script>
 </body>
 </html>

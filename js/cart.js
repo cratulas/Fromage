@@ -34,23 +34,38 @@ function displayCart() {
 }
 
 // Eliminar un producto del carrito
-function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.splice(index, 1); // Eliminar el producto en la posición indicada
-    localStorage.setItem("cart", JSON.stringify(cart));
-    displayCart(); // Actualizar el carrito en la pantalla
-}
+// js/cart.js
 
-// Simulación de proceso de pago
 function checkout() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const userEmail = localStorage.getItem("userEmail");
+
     if (cart.length === 0) {
         alert("El carrito está vacío. Agrega productos antes de proceder.");
         return;
     }
+
+    // Generar una nueva orden
+    const orderId = new Date().getTime(); // ID único basado en la hora actual
+    const orderTotal = cart.reduce((total, product) => total + product.price, 0);
+    const newOrder = {
+        id: orderId,
+        user: userEmail,
+        products: cart,
+        total: orderTotal,
+        status: "Pendiente"
+    };
+
+    // Guardar la orden en localStorage
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    // Vaciar el carrito y mostrar confirmación
     localStorage.removeItem("cart");
-    alert("¡Gracias por tu compra! El pedido ha sido procesado.");
-    displayCart(); 
+    alert("¡Gracias por tu compra! La orden ha sido registrada.");
+    displayCart(); // Actualizar el carrito en la pantalla
 }
+
 
 document.addEventListener("DOMContentLoaded", displayCart);

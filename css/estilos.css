@@ -27,23 +27,61 @@ h2 {
 }
 /* Carrusel */
 
+/* Estilo para reducir el tamaño de las imágenes en la sección de ofertas */
+.special-offer-image {
+    width: 70%; 
+    max-width: 800px; 
+    margin: 1rem auto;
+    display: block;
+    border-radius: 8px; 
+}
+
+
 /* Navbar */
 .navbar {
-    background-color: #ffffff !important; /* Fondo blanco */
+    background-color: #ffffff !important; 
     border-bottom: 1px solid #e0e0e0; 
 }
 
 .navbar .nav-link {
-    color: #000000 !important; /* Texto en color negro */
+    color: #000000 !important; 
 }
 
 .navbar .navbar-brand {
-    color: #000000 !important; /* Color del nombre de la marca en negro */
+    color: #000000 !important; 
 }
 
-/* Cambiar color del texto cuando esté activo o en hover */
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
     color: #333333 !important;
 }
 /* Navbar */
+
+
+/* Animaciones para las noticias */
+.carousel-item img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #002884;
+    border-color: #002884;
+}
+
+.btn-primary:hover {
+    background-color: #001a5b;
+    border-color: #001a5b;
+}
+
+
+/* Menú intermedio  */
+.navbar.sticky-menu {
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}

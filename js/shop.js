@@ -1,4 +1,4 @@
-// js/app.js
+
 const products = [
     { id: 1, name: "Queso Gouda", price: 5.99, img: "img/gouda.jpg" },
     { id: 2, name: "Queso Cheddar", price: 6.99, img: "img/cheddar.jpg" },
@@ -27,11 +27,18 @@ function displayProducts() {
     });
 }
 
-// Llama a displayProducts al cargar la página
+function addToCart(productId) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const product = products.find(p => p.id === productId);
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${product.name} ha sido agregado al carrito.`);
+}
+
 document.addEventListener("DOMContentLoaded", displayProducts);
 
 
-// js/app.js
+
 function searchProducts() {
     const query = document.getElementById("search-input").value.toLowerCase();
     const productsContainer = document.getElementById("products-container");

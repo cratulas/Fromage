@@ -7,6 +7,52 @@ function showWelcomePopup() {
 }
 document.addEventListener("DOMContentLoaded", showWelcomePopup);
 
+
+// Noticias y Actualidades
+const news = [
+    {
+        title: "Nueva Tienda en París",
+        content: "¡Hemos abierto una nueva tienda en el centro de París!",
+        img: "img/store_paris.jpg",
+        url: "noticia1.html"
+    },
+    {
+        title: "Lanzamiento de Nuevos Quesos",
+        content: "Prueba nuestros nuevos sabores de queso artesanal.",
+        img: "img/new_cheeses.jpg",
+        url: "noticia2.html"
+    },
+    {
+        title: "Evento de Degustación",
+        content: "Únete a nuestro evento de degustación el próximo sábado.",
+        img: "img/tasting_event.jpg",
+        url: "noticia3.html"
+    }
+];
+
+function displayNewsCarousel() {
+    const carouselInner = document.getElementById("news-carousel-inner");
+    carouselInner.innerHTML = ""; // Limpiar contenido anterior
+    news.forEach((item, index) => {
+        const newsItem = document.createElement("div");
+        newsItem.className = `carousel-item ${index === 0 ? "active" : ""}`;
+        newsItem.innerHTML = `
+            <a href="${item.url}">
+                <img src="${item.img}" class="d-block w-100" alt="${item.title}">
+            </a>
+            <div class="carousel-caption d-none d-md-block">
+                <h5>${item.title}</h5>
+                <p>${item.content}</p>
+            </div>
+        `;
+        carouselInner.appendChild(newsItem);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", displayNewsCarousel);
+
+
+
 // Ofertas
 const offers = [
     { name: "Queso Camembert", description: "Descuento del 20%", img: "img/camembert.jpg" },
@@ -18,17 +64,19 @@ function displaySpecialOffer() {
     const offerContent = document.getElementById("offer-content");
     const randomOffer = offers[Math.floor(Math.random() * offers.length)];
     offerContent.innerHTML = `
-
-        <div class="card">
-            <img src="${randomOffer.img}" class="card-img-top" alt="${randomOffer.name}">
+        <div class="card text-center">
+            <img src="${randomOffer.img}" class="card-img-top special-offer-image" alt="${randomOffer.name}">
             <div class="card-body">
                 <h5 class="card-title">${randomOffer.name}</h5>
                 <p class="card-text">${randomOffer.description}</p>
+                <a href="shop.html" class="btn btn-primary">Ir a la Tienda</a>
             </div>
         </div>
     `;
 }
+
 document.addEventListener("DOMContentLoaded", displaySpecialOffer);
+
 
 
 
@@ -51,6 +99,7 @@ function displayReviews() {
                 <p>${review.comment}</p>
                 <div>${"⭐".repeat(review.rating)}</div>
             </div>
+            
         `;
         reviewsContainer.appendChild(reviewElement);
     });

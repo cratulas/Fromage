@@ -1,3 +1,5 @@
+// js/track-orders.js
+
 document.addEventListener("DOMContentLoaded", function() {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
     const userRole = localStorage.getItem("userRole");
@@ -16,7 +18,7 @@ function loadOrders(role, email) {
     const ordersContainer = document.getElementById("orders-table");
     const orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-    ordersContainer.innerHTML = ""; 
+    ordersContainer.innerHTML = ""; // Limpiar la tabla de órdenes
 
     // Filtrar órdenes según el rol del usuario
     const filteredOrders = role === "admin" ? orders : orders.filter(order => order.user === email);
@@ -34,8 +36,15 @@ function loadOrders(role, email) {
             <td>${productsList}</td>
             <td>$${order.total.toFixed(2)}</td>
             <td>${order.status}</td>
+            <td><button class="btn btn-primary" onclick="trackOrder(${order.id})">Ver Seguimiento</button></td>
         `;
 
         ordersContainer.appendChild(row);
     });
+}
+
+// Función para redirigir a la página de seguimiento de una orden
+function trackOrder(orderId) {
+    localStorage.setItem("currentOrderId", orderId); // Guardar el ID de la orden seleccionada
+    window.location.href = "order-status.html"; // Redirigir a la página de seguimiento
 }

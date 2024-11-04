@@ -1,15 +1,17 @@
 
 const products = [
-    { id: 1, name: "Queso Gouda", price: 5.99, img: "img/gouda.jpg" },
-    { id: 2, name: "Queso Cheddar", price: 6.99, img: "img/cheddar.jpg" },
-    { id: 3, name: "Queso Parmesano", price: 8.99, img: "img/parmesano.jpg" },
-    { id: 4, name: "Queso Parmesano", price: 8.99, img: "img/parmesano.jpg" },
-    { id: 5, name: "Queso Parmesano", price: 8.99, img: "img/parmesano.jpg" },
-    { id: 6, name: "Queso Parmesano", price: 8.99, img: "img/parmesano.jpg" },
+    { id: 1, name: "Queso Bleu", price: 5.99, img: "img/bleu.jpg" },
+    { id: 2, name: "Queso Comte", price: 6.99, img: "img/comte.jpg" },
+    { id: 3, name: "Quesos surtidos", price: 8.99, img: "img/new_cheeses.jpg" },
+    { id: 4, name: "Queso Brie", price: 7.99, img: "img/brie.jpg" },
+    { id: 5, name: "Queso Camembert", price: 9.99, img: "img/camembert.jpg" },
+    { id: 6, name: "Queso Roquefort", price: 12.99, img: "img/roquefort.jpg" },
 ];
 
+// Mostrar productos en la tienda
 function displayProducts() {
     const productsContainer = document.getElementById("products-container");
+    productsContainer.innerHTML = ""; // Limpiar productos anteriores
     products.forEach(product => {
         const productElement = document.createElement("div");
         productElement.className = "col-md-4";
@@ -27,7 +29,14 @@ function displayProducts() {
     });
 }
 
+// Agregar producto al carrito
 function addToCart(productId) {
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    if (!isLoggedIn) {
+        alert("Por favor, inicia sesión para agregar productos al carrito.");
+        return;
+    }
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const product = products.find(p => p.id === productId);
     cart.push(product);
@@ -35,10 +44,7 @@ function addToCart(productId) {
     alert(`${product.name} ha sido agregado al carrito.`);
 }
 
-document.addEventListener("DOMContentLoaded", displayProducts);
-
-
-
+// Buscar productos
 function searchProducts() {
     const query = document.getElementById("search-input").value.toLowerCase();
     const productsContainer = document.getElementById("products-container");
@@ -64,3 +70,5 @@ function searchProducts() {
         productsContainer.appendChild(productElement);
     });
 }
+
+document.addEventListener("DOMContentLoaded", displayProducts);

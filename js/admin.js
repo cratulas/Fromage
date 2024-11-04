@@ -1,4 +1,3 @@
-// js/admin.js
 
 document.addEventListener("DOMContentLoaded", function() {
     // Verificar si el usuario está logueado y si es administrador
@@ -12,13 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
     }
 
-    // Lógica de la página de administrador, como estadísticas o gestión de productos
     loadAdminData();
 });
 
-// Función para cargar estadísticas o datos de administración
+// Datos de administración
 function loadAdminData() {
-    // Ejemplo: Cargar datos de usuarios y ventas para el panel de administración
     const totalUsers = JSON.parse(localStorage.getItem("users"))?.length || 0;
     const totalSales = JSON.parse(localStorage.getItem("cartHistory"))?.length || 0;
     const totalRevenue = calculateTotalRevenue();
@@ -40,10 +37,8 @@ function calculateTotalRevenue() {
 // Opciones adicionales (ejemplos)
 function manageProducts() {
     alert("Función para gestionar productos.");
-    // Aquí iría el código para mostrar o gestionar productos
 }
 
 function manageUsers() {
     alert("Función para gestionar usuarios.");
-    // Aquí iría el código para mostrar o gestionar usuarios
 }

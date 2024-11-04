@@ -1,4 +1,3 @@
-// js/navbar.js
 
 document.addEventListener("DOMContentLoaded", function () {
     // Cargar el archivo navbar.html y colocarlo en el contenedor

@@ -1,5 +1,3 @@
-// js/welcome.js
-
 document.addEventListener("DOMContentLoaded", function() {
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
     const userEmail = localStorage.getItem("userEmail");

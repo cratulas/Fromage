@@ -33,8 +33,7 @@ function displayCart() {
     cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
 }
 
-// Eliminar un producto del carrito
-// js/cart.js
+
 
 function checkout() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -64,7 +63,7 @@ function checkout() {
     // Vaciar el carrito y mostrar confirmación
     localStorage.removeItem("cart");
     alert("¡Gracias por tu compra! La orden ha sido registrada.");
-    displayCart(); // Actualizar el carrito en la pantalla
+    displayCart(); 
 }
 
 
